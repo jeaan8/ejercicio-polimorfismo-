@@ -48,6 +48,64 @@ $empleados = [
     new Vendedor(30000, 200000, 5)
 ];
 
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sueldos de empleados</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eaf2fb;
+            font-family: Arial, sans-serif;
+            color: #243b53;
+        }
+
+        table {
+            width: 600px;
+            max-width: 94%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px #243b5320;
+        }
+
+        th, td {
+            padding: 22px 16px;
+            text-align: center;
+        }
+
+        th {
+            background: #3568ad;
+            color: white;
+        }
+
+        tr:nth-child(odd) {
+            background: #f1f6fc;
+        }
+    </style>
+</head>
+<body>
+<?php
+echo '<table>';
+echo '<tr><th>Tipo de empleado</th><th>Sueldo</th></tr>';
+
 foreach ($empleados as $empleado) {
-    echo "Sueldo: $" . $empleado->calcularSueldo() . "<br>";
+    echo '<tr>';
+    echo '<td>' . get_class($empleado) . '</td>';
+    echo '<td>$' . $empleado->calcularSueldo() . '</td>';
+    echo '</tr>';
 }
+
+echo '</table>';
+?>
+</body>
+</html>
